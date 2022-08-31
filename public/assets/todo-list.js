@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $('form').on('submit', function(){
+    $('form').on('submit', function(e){
   
         var item = $('form input');
         var todo = {item: item.val()};
@@ -20,6 +20,7 @@ $(document).ready(function(){
   
     $('li').on('click', function(){
         var item = $(this).text().replace(/ /g, "-");
+        
         $.ajax({
           type: 'DELETE',
           url: '/todo/' + item,
@@ -27,6 +28,7 @@ $(document).ready(function(){
             location.reload();
           }
         });
+        
     });
 
 });
